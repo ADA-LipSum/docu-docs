@@ -1,5 +1,5 @@
 ---
-title: API-Rule
+title: API 규칙
 ---
 
 # API 규칙

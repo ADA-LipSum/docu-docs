@@ -1,5 +1,5 @@
 ---
-title: Branch-Strategy
+title: 브랜치 전략
 ---
 
 # 브랜치 전략

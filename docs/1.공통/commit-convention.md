@@ -1,5 +1,5 @@
 ---
-title: Commit Convention
+title: 커밋 컨벤션
 ---
 
 # 커밋 컨벤션(규칙)

@@ -43,23 +43,60 @@ const config: Config = {
     ],
   ],
 
+  // 검색 바 플러그인
+  plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: true,
+      },
+    ],
+  ],
+
   themeConfig: {
     image: "img/social-card.jpg",
     colorMode: {
       respectPrefersColorScheme: true,
+    },
+    algolia: {
+      apiKey: "YOUR_API_KEY",
+      appId: "YOUR_APP_ID",
+      indexName: "YOUR_INDEX_NAME",
     },
     navbar: {
       title: "ADA 문서",
       logo: {
         alt: "ADA Logo",
         src: "img/logo.svg",
+        srcDark: "img/logo-dark.svg",
       },
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "changelogSidebar",
           position: "left",
-          label: "문서",
+          label: "변경 사항",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "meetingSidebar",
+          position: "left",
+          label: "회의록",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "progressSidebar",
+          position: "left",
+          label: "진행사항",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "issueSidebar",
+          position: "left",
+          label: "이슈 및 해결 기록",
         },
         // { to: "/blog", label: "블로그", position: "left" },
         {

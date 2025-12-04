@@ -61,11 +61,11 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
-    algolia: {
-      apiKey: "YOUR_API_KEY",
-      appId: "YOUR_APP_ID",
-      indexName: "YOUR_INDEX_NAME",
-    },
+    // algolia: {
+    //   apiKey: "YOUR_API_KEY",
+    //   appId: "YOUR_APP_ID",
+    //   indexName: "YOUR_INDEX_NAME",
+    // },
     navbar: {
       title: "ADA 문서",
       logo: {

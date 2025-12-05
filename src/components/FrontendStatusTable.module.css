@@ -1,0 +1,138 @@
+/* 헤더 */
+.table thead th {
+    text-align: left;
+    padding: 14px 16px;
+    background: #fafafa;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+    color: #444;
+}
+
+/* 페이지명 컬럼 */
+.table td:nth-child(1) {
+    max-width: 220px;
+    white-space: normal;
+    word-break: keep-all;
+    line-height: 1.4;
+}
+
+/* URL 열 고정 */
+.table td:nth-child(2),
+.table th:nth-child(2) {
+    width: 110px;
+    white-space: nowrap;
+}
+
+/* 상태 칼럼은 따로 폭 제한 */
+.table td:nth-child(3) {
+    width: 90px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.table td:nth-child(4) {
+    min-width: 300px;
+    max-width: 500px;
+    white-space: nowrap;
+    word-break: break-word;
+    line-height: 1.45;
+}
+
+/* 셀 */
+.table tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    background: white;
+    transition: background 0.15s ease;
+}
+
+/* 행 hover */
+.table tbody tr:hover td {
+    background: #fafcff;
+}
+
+/* 상태 뱃지 */
+.status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    max-width: 90px;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 담당자 컬럼 */
+.ownerCell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+.table {
+    table-layout: auto;
+}
+
+.table td {
+    white-space: normal;
+}
+
+/* URL 컬럼 링크 스타일 */
+.table a {
+    color: #3366ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+/* 첫 열(페이지명) 강조 */
+.table tbody td:first-child {
+    font-weight: 600;
+    color: #222;
+}
+
+/* 다크 모드 */
+[data-theme='dark'] .table thead th {
+    background: #2a2c2f;
+    border-bottom: 1px solid #3a3d40;
+    color: #e5e5e5;
+}
+
+[data-theme='dark'] .table tbody td {
+    background: #1f1f22;
+    border-bottom: 1px solid #2b2d31;
+    color: #dcdcdc;
+}
+
+[data-theme='dark'] .table tbody tr:hover td {
+    background: #2a2b2f;
+}
+
+[data-theme='dark'] .avatar {
+    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .status {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .table tbody td:first-child {
+    color: #ffffff;
+}

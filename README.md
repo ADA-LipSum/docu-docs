@@ -1,41 +1,49 @@
-# Website
+# 🦖 ADA 문서 도구
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+팀 내 원활한 소통과 기록을 위해 [Docusaurus](https://docusaurus.io/) 기반으로 개발·배포되는 문서 플랫폼입니다.
 
-## Installation
+## 🚀 빠른 시작
 
-```bash
-yarn
-```
-
-## Local Development
+프로젝트 루트에서 다음을 실행하세요:
 
 ```bash
-yarn start
+# 의존성 설치
+npm install
+
+# 로컬 개발 서버 실행
+npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+브라우저가 자동으로 열리지 않으면 http://localhost:3000 을 방문하세요.
 
-## Build
+## 🌐 배포
 
-```bash
-yarn build
-```
+`main` 브랜치에 커밋/푸시하면 GitHub Actions를 통해 `gh-pages`로 자동 배포됩니다.  
+배포 상태는 리포지토리의 Actions 탭에서 확인하세요.
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## 🗂️ 문서 구조
 
-## Deployment
+`/docs` 경로의 문서를 카테고리별로 정리합니다:
 
-Using SSH:
+| 문서 종류 | 설명                                    |
+| --------- | --------------------------------------- |
+| changelog | 변경 사항을 기록합니다                  |
+| database  | DB 구조와 스키마를 기록합니다           |
+| issue     | 문제 발생 내역과 해결 과정을 기록합니다 |
+| meeting   | 회의 내용을 정리합니다                  |
+| progress  | 진행 상황을 기록합니다                  |
 
-```bash
-USE_SSH=true yarn deploy
-```
+## ✅ 작성 가이드
 
-Not using SSH:
+- 문서 제목과 파일명은 일관된 네이밍을 사용하세요.
+- 변경 사항은 PR과 함께 `changelog`에 추가하세요.
+- 도표·이미지는 `/static` 또는 해당 문서 폴더 내에 함께 관리하세요.
+- 카테고리 및 사이드바 반영을 위해 필요한 경우 `sidebars.js`를 업데이트하세요.
+- 문서 상단에 메타데이터(예: `title`, `sidebar_position`)를 적절히 설정하세요.
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+## 🔧 요구 사항
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- Node.js LTS 권장
+- npm 최신 버전
+
+문서 개선은 언제나 환영합니다. 작은 수정을 자주 반영해 주세요!

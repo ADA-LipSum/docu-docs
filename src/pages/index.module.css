@@ -57,6 +57,10 @@
   font-weight: 600;
 }
 
+.dbButton {
+  margin-top: 24px;
+}
+
 /* 다크 모드 */
 :global([data-theme="dark"]) .heroSection {
   background: #1d1f1e;

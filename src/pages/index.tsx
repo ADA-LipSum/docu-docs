@@ -5,6 +5,8 @@ import confetti from "canvas-confetti";
 import { useColorMode } from "@docusaurus/theme-common";
 import styles from "./index.module.css";
 
+import Link from "@docusaurus/Link";
+
 export default function Home() {
   // 스크롤 차단
   React.useEffect(() => {
@@ -78,6 +80,12 @@ function ColorAwareSection({ fireConfetti }) {
         />
 
         <p className={styles.logoText}>LipSum</p>
+        <Link
+          className={`button button--secondary button--lg ${styles.dbButton}`}
+          to="/docs/database/db-structure"
+        >
+          📌 DB 구조 페이지로 바로가기
+        </Link>
       </motion.div>
     </div>
   );

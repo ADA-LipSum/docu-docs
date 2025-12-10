@@ -98,7 +98,11 @@ const config: Config = {
           position: "left",
           label: "이슈 및 해결 기록",
         },
-        // { to: "/blog", label: "블로그", position: "left" },
+        {
+          label: "DB 구조",
+          to: "/docs/database/db-structure",
+          position: "right",
+        },
         {
           href: "https://github.com/ADA-LipSum/docu-docs",
           label: "GitHub",

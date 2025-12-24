@@ -24,6 +24,12 @@ const config: Config = {
     locales: ["ko"],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ["@docusaurus/theme-mermaid"],
+
   presets: [
     [
       "classic",
@@ -31,6 +37,8 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           editUrl: "https://github.com/ADA-LipSum/docu-docs/tree/main/",
+          // showLastUpdateTime: true,
+          // showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,

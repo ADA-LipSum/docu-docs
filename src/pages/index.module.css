@@ -61,6 +61,17 @@
   margin-top: 24px;
 }
 
+.ruleButton {
+  margin-top: 24px;
+  background-color: crimson;
+  color: white;
+}
+
+.ruleButton:hover {
+  background-color: darkred;
+  color: white;
+}
+
 /* 다크 모드 */
 :global([data-theme="dark"]) .heroSection {
   background: #1d1f1e;

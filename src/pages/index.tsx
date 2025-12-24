@@ -82,9 +82,15 @@ function ColorAwareSection({ fireConfetti }) {
         <p className={styles.logoText}>LipSum</p>
         <Link
           className={`button button--secondary button--lg ${styles.dbButton}`}
-          to="/docs/database/db-structure"
+          to="/docs/database/db-structure.md"
         >
-          📌 DB 구조 페이지로 바로가기
+          DB 구조 페이지
+        </Link>
+        <Link
+          className={`button button--secondary button--lg ${styles.ruleButton}`}
+          to="/docs/rules/"
+        >
+          규칙 페이지 (필독!!)
         </Link>
       </motion.div>
     </div>

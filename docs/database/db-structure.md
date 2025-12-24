@@ -4,14 +4,14 @@ title: DB 구조 정리
 slug: /database/db-structure
 ---
 
-# 📌 ADA 프로젝트 DB 구조 정리
+## ADA 프로젝트 DB 구조 정리
 
 이 페이지는 ADA 프로젝트에서 사용되는 주요 데이터베이스 테이블 구조를 정리한 문서입니다.  
 각 테이블의 필드, 타입, 설명을 직관적으로 확인할 수 있습니다.
 
 ---
 
-# 🧱 1. ERD (Entity Relationship Diagram)
+## 1. ERD (Entity Relationship Diagram)
 
 > ERD 이미지는 `/static/img/erd.png` 에 업로드하세요.
 
@@ -19,7 +19,7 @@ slug: /database/db-structure
 
 ---
 
-# 👤 2. **user 테이블 (유저 기본정보)**
+## 2. user 테이블 (유저 기본정보)
 
 사용자의 기본 계정 정보를 저장합니다.  
 로그인 정보, 권한, 프로필 요소 등이 포함됩니다.
@@ -41,7 +41,7 @@ slug: /database/db-structure
 
 ---
 
-# 🗂️ 3. **user_data 테이블 (마이페이지 관련)**
+## 3. user_data 테이블 (마이페이지 관련)
 
 > 마이페이지 데이터이며 **수정될 가능성이 높은 영역**
 
@@ -59,7 +59,7 @@ slug: /database/db-structure
 
 ---
 
-# 📝 4. **Post 테이블 (게시글)**
+## 4. Post 테이블 (게시글)
 
 게시판의 일반 게시글 데이터.
 
@@ -81,7 +81,7 @@ slug: /database/db-structure
 
 ---
 
-# 📰 5. **Post_Blog 테이블 (블로그 글)**
+## 5. Post_Blog 테이블 (블로그 글)
 
 블로그 전용 콘텐츠를 관리하는 테이블.  
 Post와 유사하지만 분리 운영.
@@ -104,7 +104,7 @@ Post와 유사하지만 분리 운영.
 
 ---
 
-# 💰 6. **Point 테이블 (사용자 포인트 정보)**
+## 6. Point 테이블 (사용자 포인트 정보)
 
 사용자의 포인트 잔액 및 요약 상태를 저장.
 
@@ -121,7 +121,7 @@ Post와 유사하지만 분리 운영.
 
 ---
 
-# 💳 7. **Transaction 테이블 (포인트 거래내역)**
+## 7. Transaction 테이블 (포인트 거래내역)
 
 포인트 변화 이력을 저장하는 로그 테이블.
 
@@ -138,7 +138,7 @@ Post와 유사하지만 분리 운영.
 
 ---
 
-# 🔗 8. **관계 요약**
+## 8. 관계 요약
 
 - `users.uuid` ↔ `user_data.uuid` = 1:1
 - `users.uuid` ↔ `post.writer_uuid` = 1:N
@@ -149,6 +149,101 @@ Post와 유사하지만 분리 운영.
 
 ---
 
-# 📌 9. 업데이트 로그
+## 9. 다이어그램
+
+```mermaid
+erDiagram
+
+    USERS {
+        BIGINT seq PK
+        CHAR uuid
+        VARCHAR admin_id
+        VARCHAR custom_id
+        VARCHAR custom_pw
+        VARCHAR user_realname
+        VARCHAR user_nickname
+        VARCHAR profile_image
+        VARCHAR profile_banner
+        ENUM role
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+
+    USER_DATA {
+        BIGINT seq
+        CHAR uuid PK
+        VARCHAR intro
+        VARCHAR tech_stack
+        JSON links
+        VARCHAR badge
+        INT activity_score
+        JSON contribution_data
+        TIMESTAMP updated_at
+    }
+
+    POST {
+        BIGINT seq
+        CHAR post_uuid PK
+        CHAR writer_uuid FK
+        VARCHAR title
+        TEXT texts
+        VARCHAR images
+        VARCHAR videos
+        VARCHAR writer
+        DATETIME writed_at
+        DATETIME updated_at
+        INT likes
+        INT views
+        INT comments
+    }
+
+    POST_BLOG {
+        BIGINT seq
+        CHAR blog_uuid PK
+        CHAR writer_uuid FK
+        VARCHAR title
+        TEXT texts
+        VARCHAR images
+        VARCHAR videos
+        VARCHAR writer
+        DATETIME writed_at
+        DATETIME updated_at
+        INT likes
+        INT views
+        INT comments
+    }
+
+    POINT {
+        BIGINT id PK
+        BIGINT user_id FK
+        INT balance
+        INT earned_total
+        INT spent_total
+        INT locked
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    TRANSACTION {
+        BIGINT id PK
+        BIGINT user_id FK
+        INT change_amount
+        ENUM tx_type
+        VARCHAR reason
+        VARCHAR ref_type
+        VARCHAR ref_id
+        DATETIME created_at
+    }
+
+    USERS ||--|| USER_DATA : has
+    USERS ||--o{ POST : writes
+    USERS ||--o{ POST_BLOG : writes
+    USERS ||--|| POINT : owns
+    USERS ||--o{ TRANSACTION : logs
+
+```
+
+## 📌 10. 업데이트 로그
 
 - 2025-12-10: user/post/point 구조 기반 초기 문서 작성
+- 2025-12-24: Mermaid 다이어그램 추가

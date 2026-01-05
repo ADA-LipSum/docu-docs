@@ -118,8 +118,9 @@ const config: Config = {
           position: "right",
         },
         {
+          type: "doc",
+          docId: "rules/rules",
           label: "규칙",
-          to: "/docs/rules/index",
           position: "right",
         },
         {

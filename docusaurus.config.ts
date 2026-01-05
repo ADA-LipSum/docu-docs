@@ -118,6 +118,11 @@ const config: Config = {
           position: "right",
         },
         {
+          label: "규칙",
+          to: "/docs/rules/index",
+          position: "right",
+        },
+        {
           href: "https://github.com/ADA-LipSum/docu-docs",
           label: "GitHub",
           position: "right",

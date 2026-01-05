@@ -6,13 +6,16 @@ import { useColorMode } from "@docusaurus/theme-common";
 import styles from "./index.module.css";
 
 import Link from "@docusaurus/Link";
+import Snowfall from "react-snowfall";
+import type { FC } from "react";
+
+const SnowfallComponent = Snowfall as unknown as FC<any>;
 
 export default function Home() {
   // 스크롤 차단
   React.useEffect(() => {
     document.body.style.overflow = "hidden";
     document.body.style.height = "100vh";
-
     return () => {
       document.body.style.overflow = "auto";
       document.body.style.height = "auto";
@@ -38,61 +41,63 @@ function ColorAwareSection({ fireConfetti }) {
   const { colorMode } = useColorMode();
 
   return (
-    <div className={styles.heroSection}>
-      {/* 왼쪽 */}
-      <motion.div
-        className={styles.leftBox}
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-      >
-        <motion.div
-          className={styles.verticalLine}
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-        />
+    <>
+      <SnowfallComponent
+        snowflakeCount={120}
+        color={colorMode === "dark" ? "#fff" : "#cfd8dc"}
+        style={{
+          position: "fixed",
+          width: "100vw",
+          height: "100vh",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
 
+      <div className={styles.heroSection}>
+        {/* 왼쪽 */}
         <motion.div
-          className={styles.textArea}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          className={styles.leftBox}
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
         >
-          <h1 className={styles.title}>
-            ADA 팀원들을 위한
-            <p className={styles.highlight}> 개발 문서</p>
-          </h1>
+          <motion.div
+            className={styles.verticalLine}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+          />
+
+          <motion.div
+            className={styles.textArea}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <h1 className={styles.title}>
+              ADA 팀원들을 위한
+              <p className={styles.highlight}> 개발 문서</p>
+            </h1>
+          </motion.div>
         </motion.div>
-      </motion.div>
 
-      {/* 오른쪽 */}
-      <motion.div
-        className={styles.rightBox}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-      >
-        <motion.img
-          src={
-            colorMode === "dark"
-              ? "https://ada-lipsum.github.io/docu-docs/img/logo-dark.svg"
-              : "https://ada-lipsum.github.io/docu-docs/img/logo.svg"
-          }
-          className={styles.heroImage}
-          onClick={fireConfetti}
-        />
+        {/* 오른쪽 */}
+        <motion.div
+          className={styles.rightBox}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+        >
+          <motion.img
+            src={
+              colorMode === "dark"
+                ? "https://ada-lipsum.github.io/docu-docs/img/logo-dark.svg"
+                : "https://ada-lipsum.github.io/docu-docs/img/logo.svg"
+            }
+            className={styles.heroImage}
+            onClick={fireConfetti}
+          />
 
-        <p className={styles.logoText}>LipSum</p>
-        <Link
-          className={`button button--secondary button--lg ${styles.dbButton}`}
-          to="/docs/database/"
-        >
-          DB 구조 페이지
-        </Link>
-        <Link
-          className={`button button--secondary button--lg ${styles.ruleButton}`}
-          to="/docs/rules/"
-        >
-          규칙 페이지 (필독!!)
-        </Link>
-      </motion.div>
-    </div>
+          <p className={styles.logoText}>LipSum</p>
+        </motion.div>
+      </div>
+    </>
   );
 }

@@ -107,6 +107,12 @@ const config: Config = {
           label: "이슈 및 해결 기록",
         },
         {
+          type: "docSidebar",
+          sidebarId: "pageSidebar",
+          position: "left",
+          label: "주요 페이지 소개",
+        },
+        {
           label: "DB 구조",
           to: "/docs/database/db-structure",
           position: "right",

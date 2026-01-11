@@ -74,7 +74,7 @@
 
 /* 다크 모드 */
 :global([data-theme="dark"]) .heroSection {
-  background: #1d1f1e;
+  background: #1a1a1a;
   color: white;
 }
 
@@ -88,7 +88,7 @@
 
 /* 라이트 모드 */
 :global([data-theme="light"]) .heroSection {
-  background: #ffffff;
+  background: #fafaf8;
   color: #1d1f1e;
 }
 
@@ -102,4 +102,11 @@
 
 :global([data-theme="light"]) .logoText {
   color: #1d1f1e;
+}
+
+/* 라이트 모드 - 헤더 */
+[data-theme="light"] {
+  --ifm-navbar-background-color: #21aaff;
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-navbar-link-hover-color: #1e6bb8;
 }

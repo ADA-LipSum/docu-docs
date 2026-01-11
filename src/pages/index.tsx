@@ -13,14 +13,14 @@ const SnowfallComponent = Snowfall as unknown as FC<any>;
 
 export default function Home() {
   // 스크롤 차단
-  React.useEffect(() => {
-    document.body.style.overflow = "hidden";
-    document.body.style.height = "100vh";
-    return () => {
-      document.body.style.overflow = "auto";
-      document.body.style.height = "auto";
-    };
-  }, []);
+  // React.useEffect(() => {
+  //   document.body.style.overflow = "hidden";
+  //   document.body.style.height = "100vh";
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //     document.body.style.height = "auto";
+  //   };
+  // }, []);
 
   const fireConfetti = () => {
     confetti({
@@ -39,7 +39,6 @@ export default function Home() {
 
 function ColorAwareSection({ fireConfetti }) {
   const { colorMode } = useColorMode();
-
   return (
     <>
       <SnowfallComponent
@@ -98,6 +97,80 @@ function ColorAwareSection({ fireConfetti }) {
           <p className={styles.logoText}>LipSum</p>
         </motion.div>
       </div>
+      {/* 팀원 소개 */}
+      <section className={styles.teamSection}>
+        <h2 className={styles.teamTitle}>팀원 소개</h2>
+        <p>좋은 서비스를 만들기 위해 노력하는 팀원들입니다.</p>
+
+        <div className={styles.teamGrid}>
+          {[
+            {
+              name: "김태호",
+              imgUrl: "https://avatars.githubusercontent.com/u/108007761?v=4",
+              role: "Frontend Developer",
+              gitHub: "https://github.com/rlaxogh76",
+            },
+            {
+              name: "박창연",
+              imgUrl: "https://avatars.githubusercontent.com/u/140193710?v=4",
+              role: "Frontend Developer",
+              gitHub: "https://github.com/Qlellow",
+            },
+            {
+              name: "박건형",
+              imgUrl: "https://avatars.githubusercontent.com/u/162693556?v=4",
+              role: "Frontend Developer",
+              gitHub: "https://github.com/rjsgud49",
+            },
+            {
+              name: "이현우",
+              imgUrl: "https://avatars.githubusercontent.com/u/214045693?v=4",
+              role: "Frontend Developer",
+              gitHub: "https://github.com/love09pc",
+            },
+            {
+              name: "송주영",
+              imgUrl: "https://avatars.githubusercontent.com/u/162583068?v=4",
+              role: "Backend Developer",
+              gitHub: "https://github.com/Juyoung0809",
+            },
+            {
+              name: "류지우",
+              imgUrl: "https://avatars.githubusercontent.com/u/126925788?v=4",
+              role: "Backend Developer",
+              gitHub: "https://github.com/Haryu5412Dev",
+            },
+          ].map((member, idx) => {
+            const isBackend = member.role.includes("Backend");
+            return (
+              <a
+                key={idx}
+                className={styles.teamLink}
+                href={member.gitHub}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <motion.div
+                  className={`${styles.teamCard} ${
+                    isBackend ? styles.backend : ""
+                  }`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className={styles.avatar}>
+                    <img src={member.imgUrl} alt={member.name} />
+                  </div>
+
+                  <h3 className={styles.memberName}>{member.name}</h3>
+                  <p className={styles.memberRole}>{member.role}</p>
+                </motion.div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
     </>
   );
 }

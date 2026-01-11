@@ -110,3 +110,113 @@
   --ifm-navbar-link-color: #ffffff;
   --ifm-navbar-link-hover-color: #1e6bb8;
 }
+
+/* 팀원 소개 섹션 */
+.teamSection {
+  padding: 6rem 4rem;
+  background: var(--ifm-background-color);
+  text-align: center;
+}
+
+.teamTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.teamCard {
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.teamCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden; /* ⭐ 핵심 */
+  background: #3d7cbb;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ⭐ 비율 유지하면서 꽉 채우기 */
+  border-radius: 50%; /* 이중 안전 */
+}
+
+.memberName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.memberRole {
+  color: #3d7cbb;
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+
+.memberGitHub {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-top: 0.8rem;
+  line-height: 1.5;
+}
+
+.teamLink {
+  text-decoration: none;
+}
+
+:global([data-theme="dark"]) .memberName {
+  color: #ffffff;
+}
+
+/* 라이트 모드 */
+:global([data-theme="light"]) .teamCard {
+  background: #fafaf8;
+}
+
+:global([data-theme="light"]) .memberGitHub {
+  color: #1d1f1e;
+}
+
+/* 백엔드 공통 컬러 */
+.backend {
+  --backend-color: #2ecc71; /* 스프링 느낌 그린 */
+}
+
+/* 역할 텍스트 */
+.backend .memberRole {
+  color: var(--backend-color);
+}
+
+/* 아바타 배경 */
+.backend .avatar {
+  background: var(--backend-color);
+}

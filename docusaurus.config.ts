@@ -84,9 +84,9 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "changelogSidebar",
+          sidebarId: "projectIntroSidebar",
           position: "left",
-          label: "변경 사항",
+          label: "프로젝트 개요",
         },
         {
           type: "docSidebar",
@@ -96,21 +96,21 @@ const config: Config = {
         },
         {
           type: "docSidebar",
-          sidebarId: "progressSidebar",
+          sidebarId: "developEnvironmentSidebar",
           position: "left",
-          label: "진행사항",
+          label: "개발 환경",
         },
         {
           type: "docSidebar",
-          sidebarId: "issueSidebar",
+          sidebarId: "technicalDecisionSidebar",
           position: "left",
-          label: "이슈 및 해결 기록",
+          label: "기술적 결정 기록",
         },
         {
           type: "docSidebar",
-          sidebarId: "pageSidebar",
+          sidebarId: "mainFeaturesSidebar",
           position: "left",
-          label: "주요 페이지 소개",
+          label: "주요 화면 및 기능 개요",
         },
         {
           label: "DB 구조",

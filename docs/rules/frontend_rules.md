@@ -8,8 +8,8 @@ title: 프론트엔드 개발 규칙
 
 **프론트엔드 컨벤션**
 
-- [공통 컨벤션](./Frontend/컨벤션.md)
-- [코드 포맷팅 & 린트](./Frontend/코드%20포메팅_린트.md)
+- [공통 컨벤션](./Frontend/global_convention.md)
+- [코드 포맷팅 & 린트](./Frontend/code_formatting_eslint_file.md)
 
 **깃 & 깃허브 컨벤션**
 
